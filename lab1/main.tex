@@ -1,0 +1,239 @@
+\documentclass[12]{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\title{Computational and Numerical Methods}
+\date{\today}
+\author{Amarnath Karthi  201501005 \\ Chahak Mehta  201501422}
+
+\setlength{\parindent}{0em}
+
+\makeatletter
+\begin{document}
+    \begin{titlepage}
+	\centering
+	{\scshape\LARGE SC-374 \par}
+	\vspace{0.1cm}
+	{\huge \@title \par}
+	\vspace{0.5cm}
+	{\Large Assignment 1\par}
+	\vspace{10cm}
+	\Large Amarnath Karthi          201501005\\
+	\Large Chahak Mehta             201501422\\
+	\vspace{5cm}
+	{\large \@date\par}
+\end{titlepage}
+    
+    \section{Exponential and Logarithmic functions}
+    \textbf{With the help of a single code, plot the following functions:
+    \begin{enumerate}
+        \item $y=e^x$
+        \item $y=x$
+        \item $y=ln(x)$ 
+    \end{enumerate}
+    Use suitable ranges of $x$ for each of the functions and judge their properties on various scales of $x$. Extending this exercise plot $e^{\pm x}$ on the same graph and compare them.
+    }
+    
+    \begin{figure}[h!]
+        \includegraphics[width=\textwidth]{plots/q1p1.png}
+        \caption{Plots of $y=x$, $y=e^x$ and $y=ln(x)$}
+        \label{fig:my_label}
+    \end{figure}
+    
+    In \textbf{figure \ref{fig:my_label}}, we can see the behavior of the three functions over different scales of $x$.
+    
+   \parskip 1em
+    Some important obervations :
+    \parskip 0em
+    \begin{itemize}
+        \item The function $y = ln(x)$ is defined only of positive real numbers, while $y = x$ and $y=e^x$ are.
+        \item The function $y = ln(x)$ is the inverse of $y = e^x$. We can interpret this visually by noting that both are mirror images of each other about the line $y = x$.
+        \item All the three functions are strictly increasing. This is because their derivatives are always positive and therefore have no extrema.
+            \begin{equation}
+                \lim_{x\to\infty} x = \lim_{x\to\infty} e^x = \lim_{x\to\infty} ln(x) = \infty
+            \end{equation}
+            \begin{equation}
+                \frac{d}{dx}(e^x) = e^x\qquad\frac{d}{dx}(x) = 1\qquad\frac{d}{dx}(ln(x)) = \frac{1}{x}
+            \end{equation}
+        \item For large positive values of $x$, $y = e^x$ dominates over $y = x$ which in turn dominates over $y = ln(x)$. This is due to the fact that for large values of $x$, the derivative of $y = e^x$ is larger than the derivative of $y = x$ which is in turn larger than derivative of $y = ln(x)$
+        \item For very small values of $x$($<<1$), the situation becomes vice-versa. $ln(x)$ dominates over $x$ and $e^x$. The reasoning is the same as above.
+        \item For negative values of $x$, the function $y = x$ dominates over $y = e^x$.
+        \item The function $y = e^x$ has the line $y = 0$ as its asymptote. This is because as $x$ approaches $-\infty$, $e^x$ tends to $0$.
+            \begin{equation}
+                \lim_{x\to-\infty} e^x = 0
+            \end{equation}
+        \item The function $y = ln(x)$ has the line $x = 0$ as its asymptote. This is because as $x$ approaches 0, $ln(x)$ becomes more and more negative. Also its derivative tends to $-\infty$.
+            \begin{equation}
+                \lim_{x\to0} e^x = -\infty
+            \end{equation}
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{plots/q1p2.png}
+        \caption{Plots of $y = e^x$ and $y = e^{-x}$}
+        \label{fig:q1p2}
+    \end{figure}
+    
+    In \textbf{figure \ref{fig:q1p2}}, we can see the behavior of $e^x$ and  $e^{-x}$ functions over different scales of $x$. As $e^{-x}$ is just the function $e^x$ for negative values of $x$, we can see that both are mirror images of each other about the line $x = 0$. Also the 2 functions intersect at $x = 0$ where their value is $1$. Both the functions have a common asymptote $y = 0$ but while $e^x$ converges to 0 for large positive values of $x$, $e^{-x}$ converges to 0 for large negative values of $x$. Also while $e^x$ is a strictly increasing function, $e^{-x}$ is a strictly decreasing function, its derivative being always negative. Mathematically these observations can be summarized by the following equations :
+    
+        \begin{equation}
+            \lim_{x\to-\infty}e^x = \lim_{x\to-\infty}e^{-x} = 0
+        \end{equation}
+        
+        \begin{equation}
+                \frac{d}{dx}(e^x) = e^x\qquad\frac{d}{dx}(e^{-x}) = -e^{-x}
+        \end{equation}
+    \newpage
+    
+    \section{Sinusoidal functions}
+    \textbf{For a fixed parameter $k$, plot the function $y = sin(k\cdot x)$ for a few suitably chosen values of $k$. What is the role of $k$ in determining the profile of the function? Thereafter, for $k = 1$, plot $sin(x)$ and $sin^2(x)$ on the same graph within $-\pi<x<\pi$. Compare both.}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{plots/q2p1.png}
+        \caption{Plots of $y = sin(k\cdot x)$ for different values of $k$}
+        \label{fig:q2p1}
+    \end{figure}
+    
+    In \textbf{figure \ref{fig:q2p1}}, we can see how the fixed parameter $k$ affects the behaviour of the function $y = sin(k\cdot x)$. We see that on increasing the value of $k$, the sinusoids become more "dense". $k$ is the number of cycles undergone by the sinusoid in $2\pi$ radians. When $k = 1$, from $-\pi$ to $\pi$ the sinusoid has only 1 cycle. When $k = 8$, from $-\pi$ to $\pi$ the sinusoid has 8 cycles.
+    
+    \parskip 1em
+    Formally, $k$ is defined as the \textbf{angular wave number}, which is the number of radians covered by the sinusoid per unit length.
+    \parskip 0em
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{plots/q2p2.png}
+        \caption{Plots of $y = sin^2(x)$ and $y = sin(x)$}
+        \label{fig:q2p2}
+    \end{figure}
+    
+    In \textbf{figure \ref{fig:q2p2}} we can see the behavior of $y = sin(x)$ and $y = sin^2(x)$. Both the functions have the maxima and zeros at the same points. We have :
+    \begin{eqnarray}
+        &-1\leq sin(x)\leq1&\nonumber\\ 
+        \Longrightarrow &\left|sin(x)\right|\leq1 \nonumber\\
+        \Longrightarrow &sin^2(x)\leq1 \nonumber
+    \end{eqnarray}
+    Also from the above equations, it is clear that :
+    \begin{eqnarray}
+        sin^2(x)\leq\left|sin(x)\right| \nonumber
+    \end{eqnarray}
+    Therefore $sin(x)$ is always greater in magnitude than $sin^2(x)$
+    \newpage
+    
+    \section{Gaussian and the Lorentz functions}
+    \textbf{Plot the Gaussian function $y = y_0e^{-a(x-\mu)^2}$ for a few suitably chosen values of the fixed parameters $y_0$, $a$ and $\mu$. Examine the shifting profile of the function with changes in the parameters ($\mu = v\cdot t$ simulates a single wave pulse like a tsunami, travelling with velocity $v$). Then for $y_0 = a = 1$ and $\mu = 0$, consider a first order expansion of the Gaussian function to obtain the Lorentz function. Plot both of them together and compare their behavior. For every value of $x$, take the difference between the two functions, and plot it against $x$ over $0<x<10$.}
+    
+    \begin{eqnarray}
+        y = y_0\cdot e^{-a(x-\mu)^2} \nonumber
+    \end{eqnarray}
+    
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[t!]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/q3p1.png}
+            \caption{Variation in $y_0$}
+            \label{fig:q3p1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[t!]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/q3p2.png}
+            \caption{Variation in $\mu$}
+            \label{fig:q3p2}
+        \end{subfigure}
+        \begin{subfigure}[b!]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/q3p3.png}
+            \caption{Variation in $a$}
+            \label{fig:q3p3}
+        \end{subfigure}
+        \caption{Variation of the Gaussian function with changes in $y_0$, $a$, and $\mu$}
+        \label{fig:q3p123}
+    \end{figure}
+
+\begin{itemize}
+    \item \textbf{Dependence on $y_0$ : }This parameter controls the peak value of the function. It is the value of the Gaussian function at $x = \mu$, and is the maxima or minima, depending on whether $y_0$ is positive or negative respectively.
+    \item \textbf{Dependence on $\mu$ : }This parameter controls the peak value of the function will occur. It is the value of $x$  for which the function takes the value $y_0$. Therefore if $\mu$ changes with time as $\mu = v\cdot t$ then this waveform will move along the positive x-axis at the rate of $v$ units per second.
+    \item \textbf{Dependence on $a$ : }This parameter controls how fast the function "decays" to $0$. The more the value of $a$, the faster it converges to $0$ about $x = \mu$.
+\end{itemize}
+\begin{figure}[H]
+        \centering
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/q3p4.png}
+            \caption{Comparison}
+            \label{fig:q3p4}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/q3p5.png}
+            \caption{Difference}
+            \label{fig:q3p5}
+        \end{subfigure}
+        \caption{The Gaussian and the Lorentz function comparison and difference}
+        \label{fig:q3p45}
+    \end{figure}
+    
+    For the parameters $y_0 = 1$, $a = 1$ and $\mu = 0$ we can write the following :
+    
+    
+    \begin{eqnarray}
+        y &=& e^{-x^2} \nonumber \\
+        &=& \frac{1}{e^{x^2}} \nonumber
+    \end{eqnarray}
+    
+    Replacing $e^{x^2}$ with its Taylor series expansion in the above equation, we get :
+    
+    \begin{equation}
+        y = \frac{1}{1+x^2+\frac{x^4}{2!}+...} \nonumber 
+    \end{equation}
+    
+    Comparing the above equation with the Lorentz function :
+    
+    \begin{equation}
+        y = \frac{1}{1+x^2}
+    \end{equation}
+    
+    we can clearly see that it is the first order expansion of the Gaussian function. Also as the denominator in the Gaussian function is larger than that in the Lorentz function, it will always be smaller than the Lorentz function in magnitude. This fact is shown in the plots in \textbf{figure \ref{fig:q3p45}}.
+    
+    \newpage
+    \section{Function $x\cdot ln(x)$}
+    \textbf{Plot the function $y = x\cdot ln(x)$ for $0< x <2$. Provide an analytical justification for what you observe. Also note the growth of the function for very large $x$.}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{plots/q4p1.png}
+        \caption{Plot of the function $y = x\cdot ln(x)$}
+        \label{fig:q4p1}
+    \end{figure}
+    
+    Some observations:
+    
+    \begin{itemize}
+        \item This function has only one zero, at $x = 1$.
+        \item Let us analyze if it has any extrema. We have:
+        \begin{eqnarray}
+         &\frac{d}{dx}(x\cdot ln(x)) = 0& \nonumber \\
+         \Longrightarrow &1 + ln(x) = 0& \nonumber \\
+         \Longrightarrow &x = \frac{1}{e}& \nonumber
+        \end{eqnarray}
+        Also,
+        \begin{eqnarray}
+         \left(\frac{d^2}{dx^2}(x\cdot ln(x)\right)_{x=\frac{1}{e}} = e > 0 \nonumber
+        \end{eqnarray}
+        Therefore, we have a minima at $x = \frac{1}{e}.$
+        \item This function is not defined at $x = 0$ because $ln(0)$ is undefined, but it is still continuous to the right of $x = 0$. We use the L'Hopital's rule to prove this fact:
+        
+        \begin{equation}
+            \lim_{x\to0} x\cdot ln(x) = \lim_{x\to0} \frac{ln(x)}{\frac{1}{x}} = \lim_{x\to0} \frac{\frac{d}{dx}ln(x)}{\frac{d}{dx}\frac{1}{x}} = \lim_{x\to0}-x = 0 \nonumber
+        \end{equation}
+    \end{itemize}
+    
+\end{document}
