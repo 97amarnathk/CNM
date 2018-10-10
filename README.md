@@ -1,2 +1,2 @@
 # CNM
-Computational and Numerical Methods
+A set of problems and implementable solutions in the "Computational and Numerical Methods" area
